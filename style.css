@@ -5,31 +5,26 @@ body
 
 .health
 {
+	position: fixed;
 	height: 50px;
 	width: 150px;
 	background-color: #50021B;
 	margin-left: 150px;
-	margin-top: 180px;
-	display: flex;
- 
- 	flex-direction: column-reverse;
+	margin-top: 150px;
 }
 
 .hp-bottle
 {
-	float: left;
+	position: fixed;
+	top: 300;
+	left: 400;
 	margin-left: 150px;
-	/*position: absolute;*/
-	display: flex;
- 
- 	flex-direction: column-reverse;
 }
 
-.HP img
+.hp-bottle img
 {
 	height: 200px;
 	width: 150px;
-	position: fixed;
 }
 
 .stats
