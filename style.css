@@ -71,6 +71,11 @@ body
 	width: 120px;
 }
 
+.hidden {
+	display: none;
+	visibility: hidden;
+}
+
 .bubble
 {
 	float: right;
@@ -84,30 +89,15 @@ body
 	width: 250px;
 }
 
-.normalElf
-{
+.elf {
+	position: fixed;
+	right: 0;
 	margin-right: 100px;
 	height: 750px;
 	width: 450px;
-	position: fixed;
 }
 
-.normalElf img
-{
-	height: 750px;
-	width: 450px;
-}
-
-.hoverElf
-{
-	margin-right: 100px;
-	height: 750px;
-	width: 450px;
-	position: fixed;
-}
-
-.hoverElf img
-{
+.elf img {
 	height: 750px;
 	width: 450px;
 }
@@ -167,3 +157,4 @@ body
 	height: 300px;
 	width: 300px;
 }
+
