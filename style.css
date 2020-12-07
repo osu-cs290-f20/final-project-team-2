@@ -3,41 +3,56 @@ body
 	background-color:  #0C0C0C;
 }
 
-.health
+.left-side-container {
+	display: inline-block;
+	margin-top: 0px;
+	max-width: 310px;
+	min-width: 300px;
+}
+
+.health {
+	display: inline-block;
+	width: 100%;
+	margin-top: 0px;
+}
+
+.health-bar
 {
-	position: fixed;
+	top: 30px;
+	position: absolute;
 	height: 50px;
 	width: 150px;
 	background-color: #50021B;
-	margin-left: 150px;
+	margin-left: 50px;
 	margin-top: 150px;
 }
 
 .hp-bottle
 {
-	position: fixed;
-	top: 300;
-	left: 400;
-	margin-left: 150px;
+	top: 30px;
+	position: absolute;
+	margin-left: 50px;
 }
 
 .hp-bottle img
 {
+	position: absolute;
 	height: 200px;
 	width: 150px;
 }
 
 .stats
 {
+	margin-top: 100px;
 	font-family: Crimson Pro;
 	font-size: 15px;
 	text-align: left;
 	background-color: white;
-	height: 70px;
-	width: 120px;
+	width: 100%;
+	height: auto;
 	padding: 5px;
 	border: 5px black solid;
-	display:inline;
+	display: inline-block;
 }
 
 .level
@@ -46,80 +61,33 @@ body
 	width: 120px;
 }
 
-#healthStat
+.healthStat
 {
 	width: 120px;
 }
 
-#energyStat
+.energyStat
 {
 	width: 120px;
 }
 
-#healthModifier
+.healthModifier
 {
 	width: 120px;
 }
 
-#energyModifier
+.energyModifier
 {
 	width: 120px;
 }
 
-.hidden {
-	display: none;
-	visibility: hidden;
-}
-
-.bubble
+.calendar
 {
-	float: right;
-	width: 250px;
-	height: auto;
-}
-
-.dialogue
-{
-	float: right;
-	width: 250px;
-}
-
-.elf {
-	position: fixed;
-	right: 0;
-	margin-right: 100px;
-	height: 750px;
-	width: 450px;
-}
-
-.elf img {
-	height: 750px;
-	width: 450px;
-}
-
-.normalElf:hover
-{
-	
-	opacity: 0;
-}
-
-.dailyTasks
-{
-	height: 700px;
-	width: 500px;
-	margin-left: 100px;
-	background-color: white;
-	font-family: Crimson Pro;
+	height: 300px;
+	width: 100%;
 	border: 5px black solid;
-	overflow: hidden;
-	border-radius: 5px;
+	margin-bottom: 30px;
 	display: inline-block;
-}
-
-.dailyTasks img
-{
-	height: 700px;
-	opacity: 0.5;
 }
 
 .miscTasks
@@ -139,17 +107,128 @@ body
 	opacity: 0.5;
 }
 
-.calendar
-{
-	height: 300px;
-	width: 300px;
-	border: 5px black solid;
-	margin-bottom: 30px;
-}
-
 .calendar img
 {
 	height: 300px;
 	width: 300px;
 }
 
+.middle-container
+{
+	display: inline-block;
+	margin-left: 50px;
+	max-width: 600px;
+	min-width: 400px;
+}
+
+.dailyTasks
+{
+	height: 700px;
+	max-width: 600px;
+	min-width: 400px;
+	background-color: white;
+	font-family: Crimson Pro;
+	border: 5px black solid;
+	overflow: hidden;
+	border-radius: 5px;
+	display: inline-block;
+}
+
+.dailyTasks img
+{
+	height: 700px;
+	max-width: 600px;
+	min-width: 400px;
+
+	opacity: 0.5;
+}
+
+.right-side-container
+{
+	display: inline-block;
+	min-width: 450px;
+	margin-left: 100px;
+	vertical-align: top;
+}
+
+.elf-container
+{
+	position: relative;
+}
+
+.elf {
+	position: absolute;
+	height: 750px;
+	width: 450px;
+}
+
+.elf img {
+	position: absolute;
+	height: auto;
+	width: 450px;
+}
+
+.normalElf:hover
+{
+	opacity: 0;
+}
+
+.dialogue-container
+{
+	position: relative;
+	left: 50px;
+	text-align: center;
+	width: 300px;
+}
+
+.bubble
+{
+	width: 100%;
+	height: auto;
+}
+
+#greetings
+{
+	position: absolute;
+	top: 28%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+
+}
+
+#goodDay 
+{
+	position: absolute;
+	top: 60px;
+	transform: translate(-50%, -50%);
+	font-size: 13px;
+}
+
+#badDay
+{
+	position: absolute;
+	top: 60px;
+	transform: translate(-50%, -50%);
+	font-size: 13px;
+}
+
+#lowEnergy
+{
+	position: absolute;
+	top: 60px;
+	transform: translate(-50%, -50%);
+	font-size: 13px;
+}
+
+#catAttack
+{
+	position: absolute;
+	top: 60px;
+	transform: translate(-50%, -50%);
+	font-size: 13px;
+}
+
+.hidden {
+	display: none;
+	visibility: hidden;
+}
