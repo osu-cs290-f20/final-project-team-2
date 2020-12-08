@@ -10,10 +10,19 @@ body
 	min-width: 300px;
 }
 
-.health {
+.healthDisplay
+{
 	display: inline-block;
+	margin-top: 0px;
+	max-width: 310px;
+	min-width: 300px;
+}
+
+.health {
+	display: inline-flex;
+	align-items: flex-end;
 	width: 130px;
-	height: 25px;
+	height: 150px;
 	margin-top: 0px;
 
 }
@@ -55,7 +64,8 @@ body
 	border: 5px black solid;
 	display: inline-flex;
 	flex-wrap: wrap;
-	margin-left: 10px;
+	margin-left: 15px;
+	margin-top: 30px;
 }
 
 .level
@@ -91,6 +101,7 @@ body
 	border: 5px black solid;
 	margin-bottom: 30px;
 	display: inline-block;
+	margin-top:30px;
 }
 
 .miscTasks
