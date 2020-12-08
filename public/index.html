@@ -5,6 +5,12 @@
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
 	<link href="https://fonts.googleapis.com/css2?family=Crimson+Pro&display=swap" rel="stylesheet"> 
+	<!--
+      This 3rd-party stylesheet incorporates SVG icons from Font Awesome:
+      http://fontawesome.com/.  Specifically, each of the <i> elements below
+      incorporates an icon from Font Awesome.
+    -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" crossorigin="anonymous">
   </head>
   <body>
 	<div class="left-side-container">
@@ -94,6 +100,41 @@
 			</div>
 		</div>
 	</div>
+
+	<button type="button" id="new-task-button"><i class="fas fa-plus"></i></button>
+
+	<div id="modal-backdrop" class="hidden"></div>
+	<div id="new-task-modal" class="hidden">
+		<div class="modal-dialog">
+			<div class="modal-header">
+				<h3>Add a new task to the Quest List</h3>
+				<button type="button" id="modal-close" class="modal-hide-button">&times;</button>
+			</div>
+
+			<div class="modal-body">
+				<div class="task-input-element">
+					<label for="task-title-input">Task title</label>
+					<input type="text" id="task-title-input"></input>
+				</div>
+
+				<div class="task-input-element">
+					<label for="task-point-input">Task points</label>
+					<input type="number" id="task-point-input"></input>
+				</div>
+
+				<div class="task-input-element">
+					<label for="task-time-input">Time Due</label>
+					<input type="number" id="task-time-input"></input>
+				</div>
+
+				<div class="modal-footer">
+					<button type="button" id="modal-cancel" class="modal-hide-button action-button">Cancel</button>
+					<button type="button" id="modal-accept" class="action-button">Create Task</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
 
   </body>
 </html>
