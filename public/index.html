@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Quest Tracker</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Crimson+Pro&display=swap" rel="stylesheet"> 
+  </head>
+  <body>
+	<div class="left-side-container">
+		<div class="health">
+			<div class="health-bar">
+				<!--
+					This is the burgandy health bar. The size has to scale with the health stat. The HPBottle image has a border around it, so the box is hidden and looks like it fits inside of the bottle. The height of the bottle has to rise/fall with the health. Currently, all of this is static.
+				-->
+			</div>
+
+			<div class="hp-bottle">
+			<!--
+				This is just a picture of a bottle with a mostly transparent background so that the health bar can be visible. There is a box around the bottle that is the same color as the background, so the bar will look like it is liquid inside of the bottle.
+			-->
+				<img src = "HPBottle.png" alt="Your bottle of HP">
+			</div>
+		</div>
+
+		<div class= "stats">
+			<!--
+				Displays the user's stats. These will need to be variables, but for now they are static. The health and energy will scale with level, but the health and energy might change day by day by user input. Feel free to remove if wanted :D
+			-->
+			<span class = "level"> Level: 10 </span>
+			<span class = "healthStat"> Health: 50/200 </span>
+			<span class = "energyStat"> Energy: 50</span>
+			<span class = "healthModifer"> -10 Health</span>
+			<span class = "energyModifier"> -100 Energy </span>
+		</div>
+		
+		<div class = "calendar">
+			<img src = "calendar.png" alt = "A December calendar.">
+		</div>
+
+		<div class = "miscTasks">
+			<h1>Misc Quests</h1>
+			<img src = "paperTexture.jpg" alt = "The testure of an old paper.">
+			<div class="task" data-time="8am" data-points="10">
+				<input type="checkbox" id="task-check"><span id="task-description">Example task #1</span> <span id="task-points">(10 points)</span>
+			</div>
+			<div class="task" data-time="8am" data-points="25">
+				<input type="checkbox" id="task-check"><span id="task-description">Example task #2</span> <span id="task-points">(25 points)</span>
+			</div>
+		</div>
+	</div>
+	<div class="middle-container">
+		<div class = "dailyTasks">
+			<h1>Daily Quests</h1>
+			<img src = "paperTexture.jpg" alt= "The texture of an old paper.">
+			<div class="task" data-time="8am" data-points="10">
+				<input type="checkbox" id="task-check"><span id="task-description">Example task #1</span> <span id="task-points">(10 points)</span>
+			</div>
+			<div class="task" data-time="8am" data-points="25">
+				<input type="checkbox" id="task-check"><span id="task-description">Example task #2</span> <span id="task-points">(25 points)</span>
+			</div>
+			<div class="task" data-time="8am" data-points="15">
+				<input type="checkbox" id="task-check"><span id="task-description">Example task #3</span> <span id="task-points">(15 points)</span>
+			</div>
+		</div>
+	</div>
+	<div class="right-side-container">
+		<div class="elf-container">
+			<img src = "hoverLad.png" alt="Little elf is surprised by the mouse." class = "hoverElf elf">
+			<img src= "Lad.png" alt="A little elf." class = "normalElf elf">
+		
+
+			<div class = "dialogue-container">
+			<!--
+				Different dialogue that can be cycled through depending on conditions. Again, feel free to remove this and the dialogue box if you don't wanna bother with that.
+			-->
+				<img src = "textBubble.png" alt="A text bubble" class= "bubble">
+				<span class = "dialogueText" id = "greetings"> Greetings traveler! </span>
+				<!-- Daily greeting. -->
+				<span class = "dialogueText hidden" id = "goodDay"> You've been quite successful today! You should reward yourself.</span>
+				<!-- The user had a successful day. -->
+				<span class = "dialogueText hidden" id = "badDay"> Today has been difficult for you... But, there's always tomorrow!</span>
+				<!-- The user did not have a successful day. -->
+				<span class = "dialogueText hidden" id = "lowEnergy"> Your energy is looking low! Remember to take a break when you need one...</span>
+				<!-- If the user has entered a significant energy nerf. -->
+				<span class = "dialogueText hidden" id = "catAttack"> Lord Snufflekins may be showing up soon... Be prepared. </span>
+				<!-- The cat will show up soon. -->
+			</div>
+		</div>
+	</div>
+
+  </body>
+</html>
