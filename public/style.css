@@ -1,6 +1,10 @@
 body
 {
 	background-color:  #0C0C0C;
+	/*
+		If you change this, then you have to also recolor the bottle image. Otherwise you'll see
+		the box I put around the bottle to create a cool illusion.
+	*/
 }
 
 .left-side-container {
@@ -11,9 +15,17 @@ body
 }
 
 .healthDisplay
+/*
+These are the health bottle and the stats. The health bottle is in two parts: the "liquid" inside
+and a bottle png with a transparent window to show the "liquid". The box for the health can be
+edited by increasing the height and decreasing the margin by the same amount.
+
+This can be changed to a level liquid, or another bottle can be added for level. But that's
+your funeral xox.
+*/
 {
-	display: inline-block;
-	margin-top: 0px;
+	display: inline-flex;
+	margin-top: -30px;
 	max-width: 310px;
 	min-width: 300px;
 }
@@ -65,8 +77,14 @@ body
 	display: inline-flex;
 	flex-wrap: wrap;
 	margin-left: 15px;
-	margin-top: 30px;
+	margin-top: -100px;
 }
+
+/*
+	The stats themselves are below. They should be able to be changed. Probably by being
+	made into variables. Remember, the health variable should also change the liquid in
+	the bottle.
+*/
 
 .level
 {
@@ -95,16 +113,23 @@ body
 }
 
 .calendar
+/*
+	This is the calendar graphic! It should be changed monthly, but we're turning this in once.
+*/
 {
 	width: 300px;
 	height: auto;
 	border: 5px black solid;
 	margin-bottom: 30px;
 	display: inline-block;
-	margin-top:30px;
+	margin-top: 30px;
 }
 
 .miscTasks
+/*
+	These are the tasks! They should be editable and add points. Just being editable should be
+	enough, however.
+*/
 {
 	width: 300px;
 	height: 400px;
@@ -116,6 +141,9 @@ body
 }
 
 .miscTasks img
+/*
+	The rad texture image. Don't look at it for too long.
+*/
 {
 	position: absolute;
 	left: 0;
@@ -150,6 +178,14 @@ body
 }
 
 .dailyTasks
+/*
+	The user's daily tasks! These should also be editable, but clear after the day is over.
+	I'm not sure how that would be implemented. I guess by using time mechanics? Using getTime()
+	and subtracting the current time from 24 hours might be A way to make something display
+	until midnight. But uh... If you can't get that to work let's assume our user has honor.
+	Godspeed.
+
+*/
 {
 	height: 700px;
 	max-width: 800px;
@@ -182,7 +218,11 @@ body
 	z-index: 2;
 }
 
-.task {
+.task
+/*
+	These are the actual task bars.
+*/ 
+{
 	text-align: left;
 	padding-left: 15px;
 	color: white;
@@ -205,6 +245,9 @@ body
 }
 
 .elf-container
+/*
+	PLEASE don't move this. It's the elf but he is so very hard to place.
+*/
 {
 	position: relative;
 }
@@ -240,6 +283,12 @@ body
 	width: 100%;
 	height: auto;
 }
+
+/*
+	All of the below is the potential dialogue. Technically, they should require conditions
+	to trigger, but if you can't do that, delete everything except the greeting. It's our
+	secret.
+*/
 
 #greetings
 {
