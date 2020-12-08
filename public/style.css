@@ -397,6 +397,11 @@ your funeral xox.
 	overflow: scroll;
 }
 
+.modal-header h3 {
+	margin: 0;
+	font-size: 28px;
+}
+
 .modal-dialog {
 	width: auto;
 	max-width: 600px;
@@ -451,6 +456,17 @@ your funeral xox.
 	display: flex;
 	justify-content: flex-end;
 	padding: 10px 10px 20px 10px;
+}
+
+.action-button {
+	font-size: 20px;
+	color: white;
+	padding: 10px;
+	background-color: #000;
+	border: 1px solid #ababab;
+	border-radius: 5px;
+	font-weight: lighter;
+	cursor: pointer;
 }
 
 #modal-cancel,
