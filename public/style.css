@@ -9,7 +9,7 @@ body
 
 .left-side-container {
 	display: inline-block;
-	margin-top: 0px;
+	margin-top: -100px;
 	max-width: 310px;
 	min-width: 300px;
 }
@@ -24,6 +24,8 @@ This can be changed to a level liquid, or another bottle can be added for level.
 your funeral xox.
 */
 {
+	top: 0px;
+	position: fixed;
 	display: inline-flex;
 	margin-top: -30px;
 	max-width: 310px;
@@ -41,7 +43,7 @@ your funeral xox.
 
 .health-bar
 {
-	top: 30px;
+	top: 45px;
 	position: absolute;
 	height: 25px;
 	width: 100px;
@@ -52,7 +54,7 @@ your funeral xox.
 
 .hp-bottle
 {
-	top: 30px;
+	top: 45px;
 	position: absolute;
 	margin-left: 25px;
 }
@@ -77,7 +79,7 @@ your funeral xox.
 	display: inline-flex;
 	flex-wrap: wrap;
 	margin-left: 15px;
-	margin-top: -100px;
+	margin-top: 50px;
 }
 
 /*
@@ -118,11 +120,17 @@ your funeral xox.
 */
 {
 	width: 300px;
-	height: auto;
+	height: 220px;
 	border: 5px black solid;
 	margin-bottom: 30px;
 	display: inline-block;
 	margin-top: 30px;
+}
+
+.calendar img
+{
+	width: 300px;
+	height: 220px;
 }
 
 .miscTasks
@@ -161,12 +169,6 @@ your funeral xox.
 	vertical-align: middle;
 	font-size: 46px;
 	z-index: 2;
-}
-
-.calendar img
-{
-	width: 300px;
-	height: auto;
 }
 
 .middle-container
@@ -230,7 +232,7 @@ your funeral xox.
 	max-width: 80%;
 	margin-right: 15px;
 	margin-left: 15%;
-	background-color: hsl(8, 88%, 28%);
+	background-color: #872359;
 	border-radius: 50px;
 	z-index: 2;
 	margin-top: 15px;
