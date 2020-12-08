@@ -1,5 +1,4 @@
 function handleModalAcceptClick() {
-    hideNewTaskModal();
     clearNewTaskModalInputs();
 }
 
