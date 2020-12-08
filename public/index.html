@@ -62,18 +62,25 @@
 		<!--
 			This is the middle container with the schedule.
 		-->
-
 		<div class = "dailyTasks">
 			<h1>Daily Quests</h1>
 			<img src = "paperTexture.jpg" alt= "The texture of an old paper.">
-			<div class="task" data-time="8am" data-points="10">
-				<input type="checkbox" id="task-check"><span id="task-description">Example task #1</span> <span id="task-points">(10 points)</span>
-			</div>
-			<div class="task" data-time="8am" data-points="25">
-				<input type="checkbox" id="task-check"><span id="task-description">Example task #2</span> <span id="task-points">(25 points)</span>
-			</div>
-			<div class="task" data-time="8am" data-points="15">
-				<input type="checkbox" id="task-check"><span id="task-description">Example task #3</span> <span id="task-points">(15 points)</span>
+			<div  id = "tasks">
+				<div class="task" data-time="8am" data-points="10">
+					<div class="task-info-div">
+						<input type="checkbox" id="task-check"> <span id="task-description">Example task #1</span> <span id="task-points">(10 points)</span>
+					</div>
+				</div>
+				<div class="task" data-time="8am" data-points="25">
+					<div class="task-info-div">
+						<input type="checkbox" id="task-check"> <span id="task-description">Example task #2</span> <span id="task-points">(25 points)</span>
+					</div>
+				</div>
+				<div class="task" data-time="8am" data-points="15">
+					<div class="task-info-div">
+						<input type="checkbox" id="task-check"> <span id="task-description">Example task #3</span> <span id="task-points">(15 points)</span>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>
