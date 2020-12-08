@@ -180,10 +180,10 @@ your funeral xox.
 .dailyTasks
 /*
 	The user's daily tasks! These should also be editable, but clear after the day is over.
-	I'm not sure how that would be implemented. I guess by using time mechanics? Using getTime()
-	and subtracting the current time from 24 hours might be A way to make something display
-	until midnight. But uh... If you can't get that to work let's assume our user has honor.
-	Godspeed.
+	They should also be sorted by time. (From the earliest to the latest).
+	Using getTime() and subtracting the current time from 24 hours might be a way to make 
+	something display until midnight, and simply comparing the time variables might be a way
+	to find out which task is earlier.
 
 */
 {
@@ -239,7 +239,7 @@ your funeral xox.
 .right-side-container
 {
 	display: inline-block;
-	min-width: 450px;
+	min-width: 320px;
 	margin-left: 10px;
 	vertical-align: top;
 }
@@ -263,6 +263,17 @@ your funeral xox.
 	position: absolute;
 	height: 600px;
 	width: auto;
+}
+
+@media only screen and (max-width: 1420px)
+/*
+	Makes the elf and text bubble disappear when he goes offscreen.
+*/
+{
+	.right-side-container
+	{
+		opacity: 0;
+	}
 }
 
 .normalElf:hover
