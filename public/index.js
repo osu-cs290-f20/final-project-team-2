@@ -7,7 +7,7 @@ function insertNewTask(title, points, time) {
 
   /*
    * Create the task-info-container <div> and all of its contents and add
-   * them into the post-contents <div>.
+   * them into the task-contents <div>.
    */
   var taskInfoContainerDiv = document.createElement('div');
   taskInfoContainerDiv.classList.add('task-info-container');
@@ -34,7 +34,7 @@ function insertNewTask(title, points, time) {
   taskInfoContainerDiv.appendChild(taskPointsSpan);
 
   /*
-   * Add the new post element into the DOM at the end of the posts <section>.
+   * Add the new task element into the DOM at the end of the tasks <section>.
    */
   var tasksSection = document.getElementById('tasks');
   tasksSection.appendChild(taskDiv);
