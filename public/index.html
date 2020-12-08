@@ -8,30 +8,32 @@
   </head>
   <body>
 	<div class="left-side-container">
-		<div class="health">
-			<div class="health-bar">
+		<div class = "healthDisplay">
+			<div class="health">
+				<div class="health-bar">
 				<!--
 					This is the burgandy health bar. The size has to scale with the health stat. The HPBottle image has a border around it, so the box is hidden and looks like it fits inside of the bottle. The height of the bottle has to rise/fall with the health. Currently, all of this is static.
 				-->
-			</div>
+				</div>
 
-			<div class="hp-bottle">
+				<div class="hp-bottle">
 			<!--
 				This is just a picture of a bottle with a mostly transparent background so that the health bar can be visible. There is a box around the bottle that is the same color as the background, so the bar will look like it is liquid inside of the bottle.
 			-->
-				<img src = "HPBottle.png" alt="Your bottle of HP">
+					<img src = "HPBottle.png" alt="Your bottle of HP">
+				</div>
 			</div>
-		</div>
 
-		<div class= "stats">
+			<div class= "stats">
 			<!--
 				Displays the user's stats. These will need to be variables, but for now they are static. The health and energy will scale with level, but the health and energy might change day by day by user input. Feel free to remove if wanted :D
 			-->
-			<span class = "level"> Level: 10 </span>
-			<span class = "healthStat"> Health: 50/200 </span>
-			<span class = "energyStat"> Energy: 50</span>
-			<span class = "healthModifer"> -10 Health</span>
-			<span class = "energyModifier"> -100 Energy </span>
+				<span class = "level"> Level: 10 </span>
+				<span class = "healthStat"> Health: 50/200 </span>
+				<span class = "energyStat"> Energy: 50</span>
+				<span class = "healthModifer"> -10 Health</span>
+				<span class = "energyModifier"> -100 Energy </span>
+			</div>
 		</div>
 		
 		<div class = "calendar">
@@ -50,6 +52,10 @@
 		</div>
 	</div>
 	<div class="middle-container">
+		<!--
+			This is the middle container with the schedule.
+		-->
+
 		<div class = "dailyTasks">
 			<h1>Daily Quests</h1>
 			<img src = "paperTexture.jpg" alt= "The texture of an old paper.">

@@ -1,6 +1,10 @@
 body
 {
 	background-color:  #0C0C0C;
+	/*
+		If you change this, then you have to also recolor the bottle image. Otherwise you'll see
+		the box I put around the bottle to create a cool illusion.
+	*/
 }
 
 .left-side-container {
@@ -10,51 +14,77 @@ body
 	min-width: 300px;
 }
 
+.healthDisplay
+/*
+These are the health bottle and the stats. The health bottle is in two parts: the "liquid" inside
+and a bottle png with a transparent window to show the "liquid". The box for the health can be
+edited by increasing the height and decreasing the margin by the same amount.
+
+This can be changed to a level liquid, or another bottle can be added for level. But that's
+your funeral xox.
+*/
+{
+	display: inline-flex;
+	margin-top: -30px;
+	max-width: 310px;
+	min-width: 300px;
+}
+
 .health {
-	display: inline-block;
-	width: 100%;
-	height: 140px;
+	display: inline-flex;
+	align-items: flex-end;
+	width: 130px;
+	height: 150px;
 	margin-top: 0px;
+
 }
 
 .health-bar
 {
 	top: 30px;
 	position: absolute;
-	height: 50px;
-	width: 150px;
+	height: 25px;
+	width: 100px;
 	background-color: #50021B;
-	margin-left: 50px;
-	margin-top: 150px;
+	margin-left: 30px;
+	margin-top: 125px;
 }
 
 .hp-bottle
 {
 	top: 30px;
 	position: absolute;
-	margin-left: 50px;
+	margin-left: 25px;
 }
 
 .hp-bottle img
 {
 	position: absolute;
-	height: 200px;
-	width: 150px;
+	height: 150px;
+	width: auto;
 }
 
 .stats
 {
-	margin-top: 100px;
 	font-family: Crimson Pro;
 	font-size: 15px;
 	text-align: left;
 	background-color: white;
-	width: 100%;
-	height: auto;
+	width: 100px;
+	height: 100px;
 	padding: 5px;
 	border: 5px black solid;
-	display: inline-block;
+	display: inline-flex;
+	flex-wrap: wrap;
+	margin-left: 15px;
+	margin-top: -100px;
 }
+
+/*
+	The stats themselves are below. They should be able to be changed. Probably by being
+	made into variables. Remember, the health variable should also change the liquid in
+	the bottle.
+*/
 
 .level
 {
@@ -83,15 +113,23 @@ body
 }
 
 .calendar
+/*
+	This is the calendar graphic! It should be changed monthly, but we're turning this in once.
+*/
 {
-	height: 300px;
-	width: 100%;
+	width: 300px;
+	height: auto;
 	border: 5px black solid;
 	margin-bottom: 30px;
 	display: inline-block;
+	margin-top: 30px;
 }
 
 .miscTasks
+/*
+	These are the tasks! They should be editable and add points. Just being editable should be
+	enough, however.
+*/
 {
 	width: 300px;
 	height: 400px;
@@ -103,6 +141,9 @@ body
 }
 
 .miscTasks img
+/*
+	The rad texture image. Don't look at it for too long.
+*/
 {
 	position: absolute;
 	left: 0;
@@ -124,23 +165,31 @@ body
 
 .calendar img
 {
-	height: 300px;
 	width: 300px;
+	height: auto;
 }
 
 .middle-container
 {
 	display: inline-block;
 	margin-left: 50px;
-	max-width: 600px;
-	min-width: 500px;
+	max-width: 800px;
+	min-width: 650px;
 }
 
 .dailyTasks
+/*
+	The user's daily tasks! These should also be editable, but clear after the day is over.
+	They should also be sorted by time. (From the earliest to the latest).
+	Using getTime() and subtracting the current time from 24 hours might be a way to make 
+	something display until midnight, and simply comparing the time variables might be a way
+	to find out which task is earlier.
+
+*/
 {
 	height: 700px;
-	max-width: 600px;
-	min-width: 500px;
+	max-width: 800px;
+	min-width: 650px;
 	background-color: white;
 	font-family: Crimson Pro;
 	border: 5px black solid;
@@ -169,7 +218,11 @@ body
 	z-index: 2;
 }
 
-.task {
+.task
+/*
+	These are the actual task bars.
+*/ 
+{
 	text-align: left;
 	padding-left: 15px;
 	color: white;
@@ -186,26 +239,41 @@ body
 .right-side-container
 {
 	display: inline-block;
-	min-width: 450px;
-	margin-left: 100px;
+	min-width: 320px;
+	margin-left: 10px;
 	vertical-align: top;
 }
 
 .elf-container
+/*
+	PLEASE don't move this. It's the elf but he is so very hard to place.
+*/
 {
 	position: relative;
 }
 
 .elf {
 	position: absolute;
-	height: 750px;
-	width: 450px;
+	margin-top: 100px;
+	height: 600px;
+	width: auto;
 }
 
 .elf img {
 	position: absolute;
-	height: auto;
-	width: 450px;
+	height: 600px;
+	width: auto;
+}
+
+@media only screen and (max-width: 1420px)
+/*
+	Makes the elf and text bubble disappear when he goes offscreen.
+*/
+{
+	.right-side-container
+	{
+		opacity: 0;
+	}
 }
 
 .normalElf:hover
@@ -226,6 +294,12 @@ body
 	width: 100%;
 	height: auto;
 }
+
+/*
+	All of the below is the potential dialogue. Technically, they should require conditions
+	to trigger, but if you can't do that, delete everything except the greeting. It's our
+	secret.
+*/
 
 #greetings
 {
