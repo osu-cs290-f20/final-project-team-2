@@ -171,6 +171,10 @@ your funeral xox.
 	z-index: 2;
 }
 
+.miscTasks span {
+	font-size: 14px;
+}
+
 .middle-container
 {
 	display: inline-block;
