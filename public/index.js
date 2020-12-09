@@ -1,43 +1,56 @@
 function insertNewTask(title, points, time) {
+    var context = {
+        time: time,
+        points: points,
+        title: title
+    };
+
+    var taskHTML = Handlebars.templates.task(context);
+    console.log("==taskHTML:", taskHTML);
+
+    var taskSection = document.getElementById('tasks');
+    taskSection.insertAdjacentHTML('beforeEnd', taskHTML);
+
+
       // Create the containing <div> element.
-  var taskDiv = document.createElement('div');
-  taskDiv.classList.add('task');
-  taskDiv.setAttribute('data-time', time);
-  taskDiv.setAttribute('data-points', points);
+//   var taskDiv = document.createElement('div');
+//   taskDiv.classList.add('task');
+//   taskDiv.setAttribute('data-time', time);
+//   taskDiv.setAttribute('data-points', points);
 
-  /*
-   * Create the task-info-container <div> and all of its contents and add
-   * them into the task-contents <div>.
-   */
-  var taskInfoContainerDiv = document.createElement('div');
-  taskInfoContainerDiv.classList.add('task-info-container');
-  taskDiv.appendChild(taskInfoContainerDiv);
+//   /*
+//    * Create the task-info-container <div> and all of its contents and add
+//    * them into the task-contents <div>.
+//    */
+//   var taskInfoContainerDiv = document.createElement('div');
+//   taskInfoContainerDiv.classList.add('task-info-container');
+//   taskDiv.appendChild(taskInfoContainerDiv);
 
-  var taskCheck = document.createElement('input');
-  taskCheck.type = 'checkbox';
-  taskInfoContainerDiv.appendChild(taskCheck);
+//   var taskCheck = document.createElement('input');
+//   taskCheck.type = 'checkbox';
+//   taskInfoContainerDiv.appendChild(taskCheck);
 
-  var spaceText1 = document.createTextNode(' ');
-  taskInfoContainerDiv.appendChild(spaceText1);
+//   var spaceText1 = document.createTextNode(' ');
+//   taskInfoContainerDiv.appendChild(spaceText1);
 
-  var taskDescriptionSpan = document.createElement('span');
-  taskDescriptionSpan.id = 'task-description';
-  taskDescriptionSpan.textContent = title;
-  taskInfoContainerDiv.appendChild(taskDescriptionSpan);
+//   var taskDescriptionSpan = document.createElement('span');
+//   taskDescriptionSpan.id = 'task-description';
+//   taskDescriptionSpan.textContent = title;
+//   taskInfoContainerDiv.appendChild(taskDescriptionSpan);
 
-  var spaceText2 = document.createTextNode(' ');
-  taskInfoContainerDiv.appendChild(spaceText2);
+//   var spaceText2 = document.createTextNode(' ');
+//   taskInfoContainerDiv.appendChild(spaceText2);
 
-  var taskPointsSpan = document.createElement('span');
-  taskPointsSpan.id = 'task-points';
-  taskPointsSpan.textContent = '(' + points + ' points)';
-  taskInfoContainerDiv.appendChild(taskPointsSpan);
+//   var taskPointsSpan = document.createElement('span');
+//   taskPointsSpan.id = 'task-points';
+//   taskPointsSpan.textContent = '(' + points + ' points)';
+//   taskInfoContainerDiv.appendChild(taskPointsSpan);
 
-  /*
-   * Add the new task element into the DOM at the end of the tasks <section>.
-   */
-  var tasksSection = document.getElementById('tasks');
-  tasksSection.appendChild(taskDiv);
+//   /*
+//    * Add the new task element into the DOM at the end of the tasks <section>.
+//    */
+//   var tasksSection = document.getElementById('tasks');
+//   tasksSection.appendChild(taskDiv);
 
 }
 

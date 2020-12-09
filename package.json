@@ -1,0 +1,13 @@
+{
+  "scripts":{
+    "start": "node server.js",
+    "build": "handlebars views/partials/task.handlebars -f public/taskTemplate.js",
+    "prestart": "npm run build"
+  },
+
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-handlebars": "^5.2.0",
+    "handlebars": "^4.7.6"
+  }
+}
