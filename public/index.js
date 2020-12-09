@@ -33,8 +33,40 @@ function handleModalAcceptClick() {
     if(!title || !points || !time) {
         alert("You must fill out all of the fields!");
     } else {
-        insertNewTask(title, points, time, category);
+        //Start of new js
+        if (category === "daily"){
+            var reqURL = '/addTask';
+        }
+        else if(category === 'misc'){
+            var reqURL = '/addTaskMisc'
+        }
+        else {
+            alert("Category is wrong!")
+        }
+        var taskRequest = new XMLHttpRequest();
+        taskRequest.open('POST', reqURL);
+
+        var reqBody = JSON.stringify({
+            time: time,
+            points: points,
+            title: title,
+            category: category
+        });
+
+        taskRequest.setRequestHeader('Content-type', 'application/json');
+        taskRequest.addEventListener('load', function (event) {
+            if (event.target.status === 200) {
+                insertNewTask(title, points, time, category);
+            }
+            else {
+                alert("Error storing task in database: " + event.target.response);
+            }
+        });
+        taskRequest.send(reqBody);
         hideNewTaskModal();
+        //Start of old js
+        /*insertNewTask(title, points, time, category);
+        hideNewTaskModal();*/
     }
 }
 
