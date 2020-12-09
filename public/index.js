@@ -1,4 +1,4 @@
-function insertNewTask(title, points, time) {
+function insertNewTask(title, points, time, category) {
     var context = {
         time: time,
         points: points,
@@ -8,9 +8,12 @@ function insertNewTask(title, points, time) {
     var taskHTML = Handlebars.templates.task(context);
     console.log("==taskHTML:", taskHTML);
 
-    var taskSection = document.getElementById('tasks');
+    if(category == 'daily') {
+        var taskSection = document.getElementById('tasks');
+    } else {
+        var taskSection = document.getElementById('miscTasks')
+    }
     taskSection.insertAdjacentHTML('beforeEnd', taskHTML);
-
 }
 
 var allTasks = [];
@@ -19,6 +22,7 @@ function handleModalAcceptClick() {
     var title = document.getElementById('task-title-input').value;
     var points = document.getElementById('task-point-input').value;
     var time = document.getElementById('task-time-input').value;
+    var category = document.querySelector('#task-category-fieldset input:checked').value;
 
     if(!title || !points || !time) {
         alert("You must fill out all of the fields!");
@@ -26,11 +30,12 @@ function handleModalAcceptClick() {
         allTasks.push({
             title: title,
             points: points,
-            time: time
+            time: time,
+            category: category
         });
     }
 
-    insertNewTask(title, points, time);
+    insertNewTask(title, points, time, category);
 
     hideNewTaskModal();
 }
@@ -53,6 +58,9 @@ function clearNewTaskModalInputs() {
     taskTestInputElements.forEach(function (inputElem) {
         inputElem.value = '';
     })
+
+    var checkedTaskCategoryButton = document.querySelector('#task-category-fieldset input[checked]');
+    checkedTaskCategoryButton.checked = true;
 }
 
 function hideNewTaskModal() {
