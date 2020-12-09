@@ -19,7 +19,7 @@ function insertNewTask(title, points, time, category) {
     for (var i = 0; i < taskCheckBoxes.length; i++) {
         taskCheckBoxes[i].addEventListener('click', removeTask);
     }   
-
+    addTasksToArray();
 }
 
 var allTasks = [];
@@ -33,17 +33,9 @@ function handleModalAcceptClick() {
     if(!title || !points || !time) {
         alert("You must fill out all of the fields!");
     } else {
-        allTasks.push({
-            title: title,
-            points: points,
-            time: time,
-            category: category
-        });
+        insertNewTask(title, points, time, category);
+        hideNewTaskModal();
     }
-
-    insertNewTask(title, points, time, category);
-
-    hideNewTaskModal();
 }
 
 function showNewTaskModal() {
@@ -80,6 +72,8 @@ function hideNewTaskModal() {
 }
 
 window.addEventListener('DOMContentLoaded', function() {
+    addTasksToArray();
+
     var newTaskButton = document.getElementById('new-task-button');
     if(newTaskButton) {
         newTaskButton.addEventListener('click', showNewTaskModal);
@@ -101,10 +95,6 @@ window.addEventListener('DOMContentLoaded', function() {
     }   
 });
 
-
-
-
-
 function removeTask(){
     console.log("clicked");
     var tasksContainer = document.getElementById('tasks');
@@ -112,9 +102,51 @@ function removeTask(){
 
     for(var i = 0; i < tasks.length; i++){
         if(tasks[i].checked){
-            
-            tasks[i].parentNode.remove();
-            
+            tasks[i].parentNode.parentNode.remove();
+            addTasksToArray();
         }
     }
+
+    var miscTasksContainer = document.getElementById('miscTasks');
+    var miscTasks = miscTasksContainer.getElementsByClassName('task-check');
+
+    for(var i = 0; i < miscTasks.length; i++) {
+        if(miscTasks[i].checked) {
+            miscTasks[i].parentNode.parentNode.remove();
+            addTasksToArray();
+        }
+    }
+}
+
+function addTasksToArray() {
+    for(var i = allTasks.length - 1; i >= 0; i--) {
+        allTasks.pop();
+    }
+
+    var dailyTaskContainer = document.getElementById('tasks');
+    var dailyTasks = dailyTaskContainer.getElementsByClassName('task');
+
+    for(var i = 0; i < dailyTasks.length; i++) {
+        allTasks.push({
+            title: dailyTasks[i].getAttribute('data-description'),
+            points: dailyTasks[i].getAttribute('data-points'),
+            time: dailyTasks[i].getAttribute('data-time'),
+            category: 'daily'
+        });
+        console.log(JSON.stringify(allTasks));
+    }
+
+    var miscTasksContainer = document.getElementById('miscTasks');
+    var miscTasks = miscTasksContainer.getElementsByClassName('task');
+
+    for(var i = 0; i < miscTasks.length; i++) {
+        allTasks.push({
+            title: miscTasks[i].getAttribute('data-description'),
+            points: miscTasks[i].getAttribute('data-points'),
+            time: dailyTasks[i].getAttribute('data-time'),
+            category: 'misc'
+        });
+        console.log(JSON.stringify(allTasks));
+    }
+
 }
