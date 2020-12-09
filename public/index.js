@@ -19,7 +19,7 @@ function insertNewTask(title, points, time, category) {
     for (var i = 0; i < taskCheckBoxes.length; i++) {
         taskCheckBoxes[i].addEventListener('click', removeTask);
     }   
-    addTasksToArray();
+    // addTasksToArray();
 }
 
 var allTasks = [];
@@ -104,7 +104,7 @@ function hideNewTaskModal() {
 }
 
 window.addEventListener('DOMContentLoaded', function() {
-    addTasksToArray();
+    // addTasksToArray();
 
     var newTaskButton = document.getElementById('new-task-button');
     if(newTaskButton) {
@@ -134,8 +134,14 @@ function removeTask(){
 
     for(var i = 0; i < tasks.length; i++){
         if(tasks[i].checked){
+            // New changes
+            var titleToRemove = tasks[i].parentNode.parentNode.getAttribute("data-description");
+            var categoryToRemove = "daily";
+            console.log("== titleToRemove:", titleToRemove);
+            console.log("== categoryToRemove:", categoryToRemove);
+            // End new changes
             tasks[i].parentNode.parentNode.remove();
-            addTasksToArray();
+            // addTasksToArray();
         }
     }
 
@@ -144,41 +150,71 @@ function removeTask(){
 
     for(var i = 0; i < miscTasks.length; i++) {
         if(miscTasks[i].checked) {
+            // New changes
+            var titleToRemove = miscTasks[i].parentNode.parentNode.getAttribute("data-description");
+            var categoryToRemove = "misc";
+            console.log("== titleToRemove:", titleToRemove);
+            console.log("== categoryToRemove:", categoryToRemove);
+            // End new changes
             miscTasks[i].parentNode.parentNode.remove();
-            addTasksToArray();
+            // addTasksToArray();
         }
     }
-}
+    // New changes
+    var removeRequest = new XMLHttpRequest();
+    var removeURL = '/removeTask';
+    removeRequest.open('POST', removeURL);
 
-function addTasksToArray() {
-    for(var i = allTasks.length - 1; i >= 0; i--) {
-        allTasks.pop();
-    }
+    var reqBody = JSON.stringify({
+        titleToRemove: titleToRemove,
+        categoryToRemove: categoryToRemove
+    });
 
-    var dailyTaskContainer = document.getElementById('tasks');
-    var dailyTasks = dailyTaskContainer.getElementsByClassName('task');
-
-    for(var i = 0; i < dailyTasks.length; i++) {
-        allTasks.push({
-            title: dailyTasks[i].getAttribute('data-description'),
-            points: dailyTasks[i].getAttribute('data-points'),
-            time: dailyTasks[i].getAttribute('data-time'),
-            category: 'daily'
-        });
-        console.log(JSON.stringify(allTasks));
-    }
-
-    var miscTasksContainer = document.getElementById('miscTasks');
-    var miscTasks = miscTasksContainer.getElementsByClassName('task');
-
-    for(var i = 0; i < miscTasks.length; i++) {
-        allTasks.push({
-            title: miscTasks[i].getAttribute('data-description'),
-            points: miscTasks[i].getAttribute('data-points'),
-            time: dailyTasks[i].getAttribute('data-time'),
-            category: 'misc'
-        });
-        console.log(JSON.stringify(allTasks));
-    }
+    removeRequest.setRequestHeader('Content-type', 'application/json');
+    removeRequest.addEventListener('load', function (event) {
+        if (event.target.status === 200) {
+            // If stuff breaks, uncomment this, and the following addTasksToArrayFunction
+            // addTasksToArray()
+        }
+        else {
+            alert("Error removing task from database: " + event.target.response);
+        }
+    });
+    console.log("== reqBody:", reqBody);
+    removeRequest.send(reqBody);
+    // End new changes
 
 }
+
+// function addTasksToArray() {
+//     for(var i = allTasks.length - 1; i >= 0; i--) {
+//         allTasks.pop();
+//     }
+
+//     var dailyTaskContainer = document.getElementById('tasks');
+//     var dailyTasks = dailyTaskContainer.getElementsByClassName('task');
+
+//     for(var i = 0; i < dailyTasks.length; i++) {
+//         allTasks.push({
+//             title: dailyTasks[i].getAttribute('data-description'),
+//             points: dailyTasks[i].getAttribute('data-points'),
+//             time: dailyTasks[i].getAttribute('data-time'),
+//             category: 'daily'
+//         });
+//         console.log(JSON.stringify(allTasks));
+//     }
+
+//     var miscTasksContainer = document.getElementById('miscTasks');
+//     var miscTasks = miscTasksContainer.getElementsByClassName('task');
+
+//     for(var i = 0; i < miscTasks.length; i++) {
+//         allTasks.push({
+//             title: miscTasks[i].getAttribute('data-description'),
+//             points: miscTasks[i].getAttribute('data-points'),
+//             time: dailyTasks[i].getAttribute('data-time'),
+//             category: 'misc'
+//         });
+//         console.log(JSON.stringify(allTasks));
+//     }
+
+// }

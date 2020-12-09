@@ -42,7 +42,7 @@ app.post('/addTask', function (req, res, next) {
   			else {
   				res.status(200).send("Task successfully added.");
   			}
-  		})
+  		});
 	}
 	else{
   	res.status(400).send("Request body must contain 'time', 'points', 'title', and 'category'.");
@@ -71,10 +71,60 @@ app.post('/addTaskMisc', function (req, res, next) {
         else {
           res.status(200).send("Misc task successfully added.");
         }
-      })
+      });
   }
   else{
     res.status(400).send("Request body must contain 'time', 'points', 'title', and 'category'.");
+  }
+});
+
+app.post('/removeTask', function (req, res, next) {
+  if (req.body && req.body.titleToRemove && req.body.categoryToRemove){
+    if (req.body.categoryToRemove === "daily") {
+      for (task in taskData) {
+        if (taskData[task]["title"] === req.body.titleToRemove) {
+          taskData.splice(task, 1);
+        }
+      }
+      fs.writeFile(
+        __dirname + '/taskData.json',
+        JSON.stringify(taskData, null, 2),
+        function (err, data) {
+          if (err) {
+            console.log("  -- err:", err);
+            res.status(500).send("Error removing task from DB");
+          }
+          else {
+            res.status(200).send("Task successfully removed.");
+          }
+      });
+
+    }
+    else if (req.body.categoryToRemove === "misc") {
+      for (task in miscTaskData) {
+        if (miscTaskData[task]["title"] === req.body.titleToRemove) {
+          miscTaskData.splice(task, 1);
+        }
+      }
+      fs.writeFile(
+        __dirname + '/miscTaskData.json',
+        JSON.stringify(miscTaskData, null, 2),
+        function (err, data) {
+          if (err) {
+            console.log("  -- err:", err);
+            res.status(500).send("Error removing misc task from DB");
+          }
+          else {
+            res.status(200).send("Misc task successfully removed.");
+          }
+      });
+    }
+    else {
+      res.status(400).send("categoryToRemove must be either 'daily' or 'misc'.");
+    }
+  }
+  else {
+    res.status(400).send("Request body must contain 'titleToRemove', and 'categoryToRemove'.");
   }
 });
 
