@@ -22,11 +22,12 @@ app.get('/', function(req, res, next) {
 
 app.post('/addTask', function (req, res, next) {
   console.log("== req.body:", req.body);
-  if (req.body && req.body.time && req.body.points && req.body.title) {
+  if (req.body && req.body.time && req.body.points && req.body.title && req.body.category) {
   	taskData.push({
   		time: req.body.time,
   		points: req.body.points,
-  		title: req.body.title
+  		title: req.body.title,
+      category: req.body.category
   	});
   	console.log("== Data for:", taskData);
 
@@ -44,7 +45,36 @@ app.post('/addTask', function (req, res, next) {
   		})
 	}
 	else{
-  	res.status(400).send("Request body must contain 'time', 'points', and 'title'.");
+  	res.status(400).send("Request body must contain 'time', 'points', 'title', and 'category'.");
+  }
+});
+
+app.post('/addTaskMisc', function (req, res, next) {
+  console.log("== req.body:", req.body);
+  if (req.body && req.body.time && req.body.points && req.body.title && req.body.category) {
+    miscTaskData.push({
+      time: req.body.time,
+      points: req.body.points,
+      title: req.body.title,
+      category: req.body.category
+    });
+    console.log("== Data for:", miscTaskData);
+
+    fs.writeFile(
+      __dirname + '/miscTaskData.json',
+      JSON.stringify(miscTaskData, null, 2),
+      function (err, data) {
+        if (err) {
+          console.log("  -- err:", err);
+          res.status(500).send("Error saving misc task in DB");
+        }
+        else {
+          res.status(200).send("Misc task successfully added.");
+        }
+      })
+  }
+  else{
+    res.status(400).send("Request body must contain 'time', 'points', 'title', and 'category'.");
   }
 });
 
