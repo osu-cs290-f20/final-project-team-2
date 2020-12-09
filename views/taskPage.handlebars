@@ -1,20 +1,4 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Quest Tracker</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-	<link href="https://fonts.googleapis.com/css2?family=Crimson+Pro&display=swap" rel="stylesheet"> 
-	<!--
-      This 3rd-party stylesheet incorporates SVG icons from Font Awesome:
-      http://fontawesome.com/.  Specifically, each of the <i> elements below
-      incorporates an icon from Font Awesome.
-    -->
-	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" crossorigin="anonymous">
-	<script src="index.js" charset="utf-8" defer></script>
-  </head>
-  <body>
-	<div class="left-side-container">
+<div class="left-side-container">
 		<div class = "healthDisplay">
 			<div class="health">
 				<div class="health-bar">
@@ -66,21 +50,9 @@
 			<h1>Daily Quests</h1>
 			<img src = "paperTexture.jpg" alt= "The texture of an old paper.">
 			<div  id = "tasks">
-				<div class="task" data-time="1300" data-points="10">
-					<div class="task-info-div">
-						<input type="checkbox" id="task-check"> <span id="task-description">Example task #1</span> <span id="task-points">(10 points)</span>
-					</div>
-				</div>
-				<div class="task" data-time="1550" data-points="25">
-					<div class="task-info-div">
-						<input type="checkbox" id="task-check"> <span id="task-description">Example task #2</span> <span id="task-points">(25 points)</span>
-					</div>
-				</div>
-				<div class="task" data-time="700" data-points="15">
-					<div class="task-info-div">
-						<input type="checkbox" id="task-check"> <span id="task-description">Example task #3</span> <span id="task-points">(15 points)</span>
-					</div>
-				</div>
+				{{#each tasks}}
+                    {{> task}}
+                {{/each}}
 			</div>
 		</div>
 	</div>
@@ -142,7 +114,4 @@
 			</div>
 		</div>
 	</div>
-
-
-  </body>
-</html>
+</div>
