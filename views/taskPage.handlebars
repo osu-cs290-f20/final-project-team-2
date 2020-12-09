@@ -35,12 +35,9 @@
 			<h1>Misc Quests</h1>
 			<img src = "paperTexture.jpg" alt = "The texture of an old paper.">
 			<div id = "miscTasks">
-				<div class="task" data-time="800" data-points="10">
-					<input type="checkbox" id="task-check"><span id="task-description">Example task #1</span> <span id="task-points">(10 points)</span>
-				</div>
-				<div class="task" data-time="800" data-points="25">
-					<input type="checkbox" id="task-check"><span id="task-description">Example task #2</span> <span id="task-points">(25 points)</span>
-				</div>
+				{{#each miscTasks}}
+					{{> task}}
+				{{/each}}
 			</div>
 		</div>
 	</div>
@@ -51,10 +48,10 @@
 		<div class = "dailyTasks">
 			<h1>Daily Quests</h1>
 			<img src = "paperTexture.jpg" alt= "The texture of an old paper.">
-			<div  id = "tasks">
+			<div id = "tasks">
 				{{#each tasks}}
-                    {{> task}}
-                {{/each}}
+					{{> task}}
+				{{/each}}
 			</div>
 		</div>
 	</div>

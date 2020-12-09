@@ -3,6 +3,7 @@ var express = require('express');
 var exphbs = require('express-handlebars');
 
 var taskData = require('./taskData.json');
+var miscTaskData = require('./miscTaskData.json');
 
 var app = express();
 var port = process.env.PORT || 3000;
@@ -13,7 +14,7 @@ app.set('view engine', 'handlebars')
 app.use(express.static('public'));
 
 app.get('/', function(req, res, next) {
-  res.status(200).render('taskPage', {tasks: taskData});
+  res.status(200).render('taskPage', {tasks: taskData, miscTasks: miscTaskData});
 });
 
 app.get('*', function (req, res) {

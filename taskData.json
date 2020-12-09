@@ -2,11 +2,13 @@
     {
       "time": "10:00",
       "points": "37",
-      "title": "some new task"
+      "title": "some new task",
+      "category": "daily"
     },
     {
       "time": "13:00",
       "points": "465",
-      "title": "another new task"
+      "title": "another new task",
+      "category": "daily"
     }
 ]
