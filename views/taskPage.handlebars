@@ -34,11 +34,10 @@
 		<div class = "miscTasks">
 			<h1>Misc Quests</h1>
 			<img src = "paperTexture.jpg" alt = "The texture of an old paper.">
-			<div class="task" data-time="800" data-points="10">
-				<input type="checkbox" id="task-check"><span id="task-description">Example task #1</span> <span id="task-points">(10 points)</span>
-			</div>
-			<div class="task" data-time="800" data-points="25">
-				<input type="checkbox" id="task-check"><span id="task-description">Example task #2</span> <span id="task-points">(25 points)</span>
+			<div id = "miscTasks">
+				{{#each miscTasks}}
+					{{> task}}
+				{{/each}}
 			</div>
 		</div>
 	</div>
@@ -49,10 +48,10 @@
 		<div class = "dailyTasks">
 			<h1>Daily Quests</h1>
 			<img src = "paperTexture.jpg" alt= "The texture of an old paper.">
-			<div  id = "tasks">
+			<div id = "tasks">
 				{{#each tasks}}
-                    {{> task}}
-                {{/each}}
+					{{> task}}
+				{{/each}}
 			</div>
 		</div>
 	</div>
@@ -105,6 +104,20 @@
 				<div class="task-input-element">
 					<label for="task-time-input">Time Due</label>
 					<input type="time" id="task-time-input"></input>
+				</div>
+
+				<div class="task-input-element">
+					<fieldset id="task-category-fieldset">
+						<legend>Task Category</legend>
+						<div>
+							<input type="radio" name="task-category" id="task-category-daily" value="daily" checked>
+							<label for="task-category-daily">Daily</label>
+						</div>
+						<div>
+							<input type="radio" name="task-category" id="task-category-misc" value="misc">
+							<label for="task-category-misc">Misc</label>
+						</div>
+					</fieldset>
 				</div>
 
 				<div class="modal-footer">
