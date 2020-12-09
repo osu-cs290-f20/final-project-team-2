@@ -11,6 +11,11 @@ function insertNewTask(title, points, time) {
     var taskSection = document.getElementById('tasks');
     taskSection.insertAdjacentHTML('beforeEnd', taskHTML);
 
+    var taskCheckBoxes = document.getElementsByClassName('task-check');
+    for (var i = 0; i < taskCheckBoxes.length; i++) {
+        taskCheckBoxes[i].addEventListener('click', removeTask);
+    }   
+
 }
 
 var allTasks = [];
@@ -80,4 +85,27 @@ window.addEventListener('DOMContentLoaded', function() {
     for (var i = 0; i < modalHideButtons.length; i++) {
         modalHideButtons[i].addEventListener('click', hideNewTaskModal);
     }
+
+    var taskCheckBoxes = document.getElementsByClassName('task-check');
+    for (var i = 0; i < taskCheckBoxes.length; i++) {
+        taskCheckBoxes[i].addEventListener('click', removeTask);
+    }   
 });
+
+
+
+
+
+function removeTask(){
+    console.log("clicked");
+    var tasksContainer = document.getElementById('tasks');
+    var tasks = tasksContainer.getElementsByClassName('task-check');
+
+    for(var i = 0; i < tasks.length; i++){
+        if(tasks[i].checked){
+            
+            tasks[i].parentNode.remove();
+            
+        }
+    }
+}
