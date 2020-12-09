@@ -30,21 +30,21 @@ app.post('/addTask', function (req, res, next) {
   	console.log("== Data for:", taskData);
 
   	fs.writeFile(
-  		__dirname + './taskData.json',
+  		__dirname + '/taskData.json',
   		JSON.stringify(taskData, null, 2),
   		function (err, data) {
   			if (err) {
   				console.log("  -- err:", err);
-  				res.status(500).send("Error saving photo in DB");
+  				res.status(500).send("Error saving task in DB");
+  			}
+  			else {
+  				res.status(200).send("Task successfully added.");
   			}
   		})
-
-  }
-  else {
+	}
+	else{
   	res.status(400).send("Request body must contain 'time', 'points', and 'title'.");
   }
-  next();
-
 });
 
 app.get('*', function (req, res) {
