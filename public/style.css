@@ -64,7 +64,7 @@ your funeral xox.
 	width: auto;
 }
 
-.stats
+#stats
 {
 	font-family: Crimson Pro;
 	font-size: 15px;
@@ -87,12 +87,13 @@ your funeral xox.
 	the bottle.
 */
 
-.level
+#level
 {
 	font-weight: 100px;
 	width: 120px;
 }
 
+<<<<<<< HEAD
 .healthStat
 {
 	width: 120px;
@@ -104,6 +105,12 @@ your funeral xox.
 }
 
 /*.calendar
+=======
+#experience
+{
+	width: 120px;
+}
+>>>>>>> 32b8ed03cfe425c15b122191d933ca4edca286c6
 
 	This is the calendar graphic! It should be changed monthly, but we're turning this in once.
 
@@ -483,4 +490,10 @@ your funeral xox.
 
 #modal-cancel:hover {
 	background-color: #eee;
+}
+
+
+.error-container {
+	color: white;
+	text-align: center;
 }
