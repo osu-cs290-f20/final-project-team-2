@@ -5,6 +5,7 @@ var exphbs = require('express-handlebars');
 
 var taskData = require('./taskData.json');
 var miscTaskData = require('./miscTaskData.json');
+var userData = require('./userData.json');
 
 var app = express();
 var port = process.env.PORT || 3000;
@@ -17,7 +18,7 @@ app.use(express.json());
 app.use(express.static('public'));
 
 app.get('/', function(req, res, next) {
-  res.status(200).render('taskPage', {tasks: taskData, miscTasks: miscTaskData});
+  res.status(200).render('taskPage', {tasks: taskData, miscTasks: miscTaskData, user: userData});
 });
 
 app.post('/addTask', function (req, res, next) {

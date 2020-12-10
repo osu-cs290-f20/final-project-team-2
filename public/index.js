@@ -140,6 +140,7 @@ function removeTask(){
             console.log("== titleToRemove:", titleToRemove);
             console.log("== categoryToRemove:", categoryToRemove);
             // End new changes
+            tasks[i].checked = false;
             tasks[i].parentNode.parentNode.remove();
             // addTasksToArray();
         }
