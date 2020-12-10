@@ -1,1 +1,50 @@
-[]
+[
+  {
+    "time": "00:00",
+    "points": "30",
+    "title": "Pet Cat",
+    "category": "daily"
+  },
+  {
+    "time": "01:00",
+    "points": "45",
+    "title": "Feed Cat",
+    "category": "daily"
+  },
+  {
+    "time": "02:00",
+    "points": "15",
+    "title": "Play with cat",
+    "category": "daily"
+  },
+  {
+    "time": "12:30",
+    "points": "75",
+    "title": "Give Cat Meds",
+    "category": "daily"
+  },
+  {
+    "time": "03:02",
+    "points": "10",
+    "title": "Clean Litter Box",
+    "category": "daily"
+  },
+  {
+    "time": "18:32",
+    "points": "238",
+    "title": "Put Fragile Items on Desk",
+    "category": "daily"
+  },
+  {
+    "time": "17:08",
+    "points": "350",
+    "title": "Water Cat",
+    "category": "daily"
+  },
+  {
+    "time": "21:08",
+    "points": "50",
+    "title": "Go to Humane Society to look at cats",
+    "category": "daily"
+  }
+]
