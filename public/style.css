@@ -165,10 +165,12 @@ your funeral xox.
 {
 	font-family: Crimson Pro;
 	position: relative;
-	margin: auto;
 	vertical-align: middle;
 	font-size: 46px;
 	z-index: 2;
+	margin-top: 5px;
+	margin-left: 35px;
+	margin-bottom: -10px;
 }
 
 .miscTasks span {
