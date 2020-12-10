@@ -214,6 +214,13 @@ function updateExperience(points) {
         experience: experience
     };
 
+    var statsHTML = Handlebars.templates.user(context);
+
+    levelSpan.remove();
+    experienceSpan.remove();
+
+    statsDiv.insertAdjacentHTML('beforeend', statsHTML);
+
     if (category === "daily"){
             var reqURL = '/addTask';
         }
@@ -250,12 +257,12 @@ function updateExperience(points) {
     userUpdateRequest.setRequestHeader('Content-type', 'application/json');
     userUpdateRequest.addEventListener('load', function (event) {
         if (event.target.status === 200) {
-            var statsHTML = Handlebars.templates.user(context);
+            // var statsHTML = Handlebars.templates.user(context);
 
-            levelSpan.remove();
-            experienceSpan.remove();
+            // levelSpan.remove();
+            // experienceSpan.remove();
 
-            statsDiv.insertAdjacentHTML('beforeend', statsHTML);
+            // statsDiv.insertAdjacentHTML('beforeend', statsHTML);
         }
         else {
             alert("Error updating user data: " + event.target.response);
