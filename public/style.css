@@ -133,6 +133,7 @@ your funeral xox.
 	display: flex;
 	flex-wrap: wrap;
 	padding-bottom:10px;
+	align-content: start;
 }
 
 .miscTasks img
