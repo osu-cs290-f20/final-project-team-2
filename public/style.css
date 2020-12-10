@@ -8,10 +8,9 @@ body
 }
 
 .left-side-container {
-	display: inline-block;
-	margin-top: 0px;
-	max-width: 310px;
-	min-width: 300px;
+    margin-top: 0px;
+    max-width: 310px;
+    min-width: 300px;
 }
 
 .healthDisplay
@@ -28,6 +27,7 @@ your funeral xox.
 	margin-top: -30px;
 	max-width: 310px;
 	min-width: 300px;
+	position: fixed;
 }
 
 .health {
@@ -76,8 +76,9 @@ your funeral xox.
 	border: 5px black solid;
 	display: inline-flex;
 	flex-wrap: wrap;
-	margin-left: 15px;
-	margin-top: -120px;
+	margin-left: 160px;
+	margin-top: 40px;
+	position: absolute;
 }
 
 /*
@@ -102,20 +103,10 @@ your funeral xox.
 	width: 120px;
 }
 
-.healthModifier
-{
-	width: 120px;
-}
+/*.calendar
 
-.energyModifier
-{
-	width: 120px;
-}
-
-.calendar
-/*
 	This is the calendar graphic! It should be changed monthly, but we're turning this in once.
-*/
+
 {
 	width: 300px;
 	height: auto;
@@ -129,7 +120,7 @@ your funeral xox.
 {
 	width: 300px;
 	height: 220px;
-}
+}*/
 
 .miscTasks
 /*
@@ -138,12 +129,16 @@ your funeral xox.
 */
 {
 	width: 300px;
-	height: 400px;
+	min-height: 525px;
 	background-color: white;
 	border: 5px black solid;
 	border-radius: 5px;
 	text-align: center;
-	position: relative;
+	position: absolute;
+	margin-top: 175px;
+	display: flex;
+	flex-wrap: wrap;
+	padding-bottom:10px;
 }
 
 .miscTasks img
@@ -171,12 +166,14 @@ your funeral xox.
 
 .miscTasks span {
 	font-size: 14px;
+	padding: 10px;
+	margin-bottom:10px;
 }
 
 .middle-container
 {
 	display: inline-block;
-	margin-left: 50px;
+	margin-left: 350px;
 	max-width: 800px;
 	min-width: 650px;
 }
@@ -235,9 +232,10 @@ your funeral xox.
 	margin-right: 15px;
 	margin-left: 15%;
 	background-color: #872359;
-	border-radius: 50px;
+	border-radius: 10px;
 	z-index: 2;
 	margin-top: 15px;
+	padding-bottom: 10px;
 }
 
 .right-side-container
