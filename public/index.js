@@ -104,7 +104,11 @@ function hideNewTaskModal() {
 }
 
 window.addEventListener('DOMContentLoaded', function() {
-    // addTasksToArray();
+    var experienceSpan = document.getElementById('experience');
+    var experience = Number(experienceSpan.getAttribute('data-experience'));
+
+    document.getElementById('health-bar').style.height = experience + "px";
+    document.getElementById('health-bar').style.marginTop = (150 - Number(experience)) + "px";
 
     var newTaskButton = document.getElementById('new-task-button');
     if(newTaskButton) {
@@ -124,7 +128,7 @@ window.addEventListener('DOMContentLoaded', function() {
     var taskCheckBoxes = document.getElementsByClassName('task-check');
     for (var i = 0; i < taskCheckBoxes.length; i++) {
         taskCheckBoxes[i].addEventListener('click', removeTask);
-    }   
+    }
 });
 
 function removeTask(){
@@ -203,9 +207,9 @@ function updateExperience(points) {
 
     experience += Number(points);
 
-    while(experience >= 100) {
+    while(experience >= 150) {
         level++;
-        experience -= 100;
+        experience -= 150;
     }
 
     var context = {
@@ -231,5 +235,8 @@ function updateExperience(points) {
         }
     });
     userUpdateRequest.send(JSON.stringify(context));
+
+    document.getElementById('health-bar').style.height = experience + "px";
+    document.getElementById('health-bar').style.marginTop = (150 - Number(experience)) + "px";
 
 }
