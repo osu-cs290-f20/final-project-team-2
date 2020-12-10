@@ -134,10 +134,12 @@ app.post('/updateUser', function (req, res, next) {
   console.log('== req.body.level', req.body.level);
   console.log('== req.body.experience', req.body.experience);
   if (req.body && req.body.level && req.body.experience){
-    userData[0]["level"] = req.body.level;
-    userData[0]["experience"] = req.body.experience;
+    userData[0]["level"] = String(req.body.level);
+    userData[0]["experience"] = String(req.body.experience);
+    console.log('userData[0]["level"]', userData[0]["level"]);
+    console.log('== userData[0]["experience"]', userData[0]["experience"]);
     fs.writeFile(
-      __dirname + 'userData.json',
+      __dirname + '/userData.json',
       JSON.stringify(userData, null, 2),
       function (err, data) {
         if (err) {

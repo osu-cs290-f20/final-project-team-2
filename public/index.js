@@ -193,7 +193,6 @@ function removeTask(){
 }
 
 function updateExperience(points) {
-
     var statsDiv = document.getElementById('stats');
 
     var levelSpan = document.getElementById('level');
@@ -214,60 +213,23 @@ function updateExperience(points) {
         experience: experience
     };
 
-    var statsHTML = Handlebars.templates.user(context);
-
-    levelSpan.remove();
-    experienceSpan.remove();
-
-    statsDiv.insertAdjacentHTML('beforeend', statsHTML);
-
-    if (category === "daily"){
-            var reqURL = '/addTask';
-        }
-        else if(category === 'misc'){
-            var reqURL = '/addTaskMisc'
-        }
-        else {
-            alert("Category is wrong!")
-        }
-        var taskRequest = new XMLHttpRequest();
-        taskRequest.open('POST', reqURL);
-
-        var reqBody = JSON.stringify({
-            time: time,
-            points: points,
-            title: title,
-            category: category
-        });
-
-        taskRequest.setRequestHeader('Content-type', 'application/json');
-        taskRequest.addEventListener('load', function (event) {
-            if (event.target.status === 200) {
-                insertNewTask(title, points, time, category);
-            }
-            else {
-                alert("Error storing task in database: " + event.target.response);
-            }
-        });
-    taskRequest.send(reqBody);
-
     var updateUserURL = '/updateUser'
     var userUpdateRequest = new XMLHttpRequest();
     userUpdateRequest.open('POST', updateUserURL);
     userUpdateRequest.setRequestHeader('Content-type', 'application/json');
     userUpdateRequest.addEventListener('load', function (event) {
         if (event.target.status === 200) {
-            // var statsHTML = Handlebars.templates.user(context);
+            var statsHTML = Handlebars.templates.user(context);
 
-            // levelSpan.remove();
-            // experienceSpan.remove();
+            levelSpan.remove();
+            experienceSpan.remove();
 
-            // statsDiv.insertAdjacentHTML('beforeend', statsHTML);
+            statsDiv.insertAdjacentHTML('beforeend', statsHTML);
         }
         else {
             alert("Error updating user data: " + event.target.response);
         }
     });
-    userUpdateRequest.send(context);
+    userUpdateRequest.send(JSON.stringify(context));
 
 }
