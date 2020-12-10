@@ -11,6 +11,7 @@ body
     margin-top: 0px;
     max-width: 310px;
     min-width: 300px;
+    margin-left: 10px;
 }
 
 .healthDisplay
@@ -197,7 +198,7 @@ your funeral xox.
 
 */
 {
-	height: 700px;
+	min-height: 700px;
 	max-width: 800px;
 	min-width: 650px;
 	background-color: white;
@@ -208,6 +209,7 @@ your funeral xox.
 	display: inline-block;	
 	position: relative;
 	text-align: center;
+	padding-bottom: 20px;
 }
 
 .dailyTasks img {
@@ -234,24 +236,23 @@ your funeral xox.
 */ 
 {
 	text-align: left;
-	padding-left: 15px;
 	color: white;
 	position: relative;
-	max-width: 80%;
+	max-width: 90%;
 	margin-right: 15px;
-	margin-left: 15%;
+	margin-left: 30px;
 	background-color: #872359;
 	border-radius: 10px;
 	z-index: 2;
 	margin-top: 15px;
-	padding-bottom: 10px;
+	padding: 10px;
 }
 
 .right-side-container
 {
 	display: inline-block;
 	min-width: 320px;
-	margin-left: 10px;
+	margin-left: -10px;
 	vertical-align: top;
 }
 
