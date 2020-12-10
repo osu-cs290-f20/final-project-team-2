@@ -139,7 +139,9 @@ function removeTask(){
             var categoryToRemove = "daily";
             console.log("== titleToRemove:", titleToRemove);
             console.log("== categoryToRemove:", categoryToRemove);
+            console.log(tasks[i].parentNode.parentNode.getAttribute('data-points'));
             // End new changes
+            updateExperience(tasks[i].parentNode.parentNode.getAttribute('data-points'));
             tasks[i].checked = false;
             tasks[i].parentNode.parentNode.remove();
             // addTasksToArray();
@@ -156,7 +158,10 @@ function removeTask(){
             var categoryToRemove = "misc";
             console.log("== titleToRemove:", titleToRemove);
             console.log("== categoryToRemove:", categoryToRemove);
+            console.log(miscTasks[i].parentNode.parentNode.getAttribute('data-points'));
             // End new changes
+            updateExperience(miscTasks[i].parentNode.parentNode.getAttribute('data-points'));
+            miscTasks[i].checked = false;
             miscTasks[i].parentNode.parentNode.remove();
             // addTasksToArray();
         }
@@ -187,35 +192,44 @@ function removeTask(){
 
 }
 
-// function addTasksToArray() {
-//     for(var i = allTasks.length - 1; i >= 0; i--) {
-//         allTasks.pop();
-//     }
+function updateExperience(points) {
+    var statsDiv = document.getElementById('stats');
 
-//     var dailyTaskContainer = document.getElementById('tasks');
-//     var dailyTasks = dailyTaskContainer.getElementsByClassName('task');
+    var levelSpan = document.getElementById('level');
+    var level = levelSpan.getAttribute('data-level');
 
-//     for(var i = 0; i < dailyTasks.length; i++) {
-//         allTasks.push({
-//             title: dailyTasks[i].getAttribute('data-description'),
-//             points: dailyTasks[i].getAttribute('data-points'),
-//             time: dailyTasks[i].getAttribute('data-time'),
-//             category: 'daily'
-//         });
-//         console.log(JSON.stringify(allTasks));
-//     }
+    var experienceSpan = document.getElementById('experience');
+    var experience = Number(experienceSpan.getAttribute('data-experience'));
 
-//     var miscTasksContainer = document.getElementById('miscTasks');
-//     var miscTasks = miscTasksContainer.getElementsByClassName('task');
+    experience += Number(points);
 
-//     for(var i = 0; i < miscTasks.length; i++) {
-//         allTasks.push({
-//             title: miscTasks[i].getAttribute('data-description'),
-//             points: miscTasks[i].getAttribute('data-points'),
-//             time: dailyTasks[i].getAttribute('data-time'),
-//             category: 'misc'
-//         });
-//         console.log(JSON.stringify(allTasks));
-//     }
+    while(experience >= 100) {
+        level++;
+        experience -= 100;
+    }
 
-// }
+    var context = {
+        level: level,
+        experience: experience
+    };
+
+    var updateUserURL = '/updateUser'
+    var userUpdateRequest = new XMLHttpRequest();
+    userUpdateRequest.open('POST', updateUserURL);
+    userUpdateRequest.setRequestHeader('Content-type', 'application/json');
+    userUpdateRequest.addEventListener('load', function (event) {
+        if (event.target.status === 200) {
+            var statsHTML = Handlebars.templates.user(context);
+
+            levelSpan.remove();
+            experienceSpan.remove();
+
+            statsDiv.insertAdjacentHTML('beforeend', statsHTML);
+        }
+        else {
+            alert("Error updating user data: " + event.target.response);
+        }
+    });
+    userUpdateRequest.send(JSON.stringify(context));
+
+}
