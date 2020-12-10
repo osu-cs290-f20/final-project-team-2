@@ -64,7 +64,7 @@ your funeral xox.
 	width: auto;
 }
 
-.stats
+#stats
 {
 	font-family: Crimson Pro;
 	font-size: 15px;
@@ -86,28 +86,13 @@ your funeral xox.
 	the bottle.
 */
 
-.level
+#level
 {
 	font-weight: 100px;
 	width: 120px;
 }
 
-.healthStat
-{
-	width: 120px;
-}
-
-.energyStat
-{
-	width: 120px;
-}
-
-.healthModifier
-{
-	width: 120px;
-}
-
-.energyModifier
+#experience
 {
 	width: 120px;
 }
