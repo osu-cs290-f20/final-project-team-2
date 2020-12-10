@@ -19,11 +19,9 @@
 			<!--
 				Displays the user's stats. These will need to be variables, but for now they are static. The health and energy will scale with level, but the health and energy might change day by day by user input. Feel free to remove if wanted :D
 			-->
-				<span class = "level"> Level: 10 </span>
-				<span class = "healthStat"> Health: 50/200 </span>
-				<span class = "energyStat"> Energy: 50</span>
-				<span class = "healthModifer"> -10 Health</span>
-				<span class = "energyModifier"> -100 Energy </span>
+				{{#each user}}
+					{{> user}}
+				{{/each}}
 			</div>
 		</div>
 		
