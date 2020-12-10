@@ -471,3 +471,9 @@ your funeral xox.
 #modal-cancel:hover {
 	background-color: #eee;
 }
+
+
+.error-container {
+	color: white;
+	text-align: center;
+}
