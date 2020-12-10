@@ -129,6 +129,12 @@ app.post('/removeTask', function (req, res, next) {
   }
 });
 
+app.post('/updateUser', function (req, res, next) {
+  if (req.body && req.body.level && req.body.experience){
+    
+  }
+});
+
 app.get('*', function (req, res) {
     res.status(404).render('404', {
       url: req.url
