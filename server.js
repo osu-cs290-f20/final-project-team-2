@@ -129,6 +129,30 @@ app.post('/removeTask', function (req, res, next) {
   }
 });
 
+app.post('/updateUser', function (req, res, next) {
+  console.log('== userData[0]["level"]', userData[0]["level"]);
+  console.log('== req.body.level', req.body.level);
+  console.log('== req.body.experience', req.body.experience);
+  if (req.body && req.body.level && req.body.experience){
+    userData[0]["level"] = String(req.body.level);
+    userData[0]["experience"] = String(req.body.experience);
+    console.log('userData[0]["level"]', userData[0]["level"]);
+    console.log('== userData[0]["experience"]', userData[0]["experience"]);
+    fs.writeFile(
+      __dirname + '/userData.json',
+      JSON.stringify(userData, null, 2),
+      function (err, data) {
+        if (err) {
+          console.log("  -- err:", err);
+          res.status(500).send("Error updating user data in DB.");
+        }
+        else {
+          res.status(200).send("User data successfully updated.")
+        }
+    });
+  }
+});
+
 app.get('*', function (req, res) {
     res.status(404).render('404', {
       url: req.url

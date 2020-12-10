@@ -193,7 +193,6 @@ function removeTask(){
 }
 
 function updateExperience(points) {
-
     var statsDiv = document.getElementById('stats');
 
     var levelSpan = document.getElementById('level');
@@ -214,11 +213,23 @@ function updateExperience(points) {
         experience: experience
     };
 
-    var statsHTML = Handlebars.templates.user(context);
+    var updateUserURL = '/updateUser'
+    var userUpdateRequest = new XMLHttpRequest();
+    userUpdateRequest.open('POST', updateUserURL);
+    userUpdateRequest.setRequestHeader('Content-type', 'application/json');
+    userUpdateRequest.addEventListener('load', function (event) {
+        if (event.target.status === 200) {
+            var statsHTML = Handlebars.templates.user(context);
 
-    levelSpan.remove();
-    experienceSpan.remove();
+            levelSpan.remove();
+            experienceSpan.remove();
 
-    statsDiv.insertAdjacentHTML('beforeend', statsHTML);
+            statsDiv.insertAdjacentHTML('beforeend', statsHTML);
+        }
+        else {
+            alert("Error updating user data: " + event.target.response);
+        }
+    });
+    userUpdateRequest.send(JSON.stringify(context));
 
 }
